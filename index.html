@@ -1,0 +1,364 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>SAFE VOICES SL - Your Voice, Your Strength</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            box-sizing: border-box;
+        }
+
+        #wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h1, h2 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #7f8c8d;
+        }
+
+        /* Navigation and Header */
+        #header {
+            background-color: #3498db;
+            border-radius: 10px 10px 0 0;
+            padding: 30px 0;
+        }
+
+        #header .logo {
+            font-size: 2.8em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #nav {
+            background-color: #2980b9;
+            border-radius: 0 0 10px 10px;
+        }
+
+        #nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #nav ul li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        #nav ul li a {
+            color: #ecf0f1;
+            font-weight: 500;
+            font-size: 1.2em;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        #nav ul li a:hover {
+            background-color: #3498db;
+        }
+
+        /* Language and Accessibility Features in the Header */
+        .language-accessibility {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .language-accessibility select,
+        .language-accessibility button {
+            background: none;
+            border: none;
+            color: #ecf0f1;
+            font-size: 1em;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .language-accessibility button:hover,
+        .language-accessibility select:hover {
+            color: #3498db;
+        }
+
+        /* Intro Section */
+        #intro {
+            background-color: #eaf2f8;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        #intro h1 {
+            font-size: 3em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        #intro p {
+            font-size: 1.5em;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #7f8c8d;
+        }
+
+        .actions {
+            margin-top: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+            border-radius: 25px;
+            font-weight: 700;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            border: none;
+            margin: 5px;
+            font-size: 1.1em;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Main Section */
+        #main {
+            margin: 50px 0;
+        }
+
+        .post.featured {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .post.featured:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        #footer {
+            background-color: #34495e;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        #footer h3 {
+            color: #ecf0f1;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        #footer p {
+            color: #bdc3c7;
+            font-size: 1em;
+        }
+
+        /* Accessibility and Language Dropdowns */
+        #languageSelect, 
+        #textSizeControls button {
+            font-size: 0.9em;
+            background-color: #34495e;
+            color: #ecf0f1;
+            border: 1px solid #ecf0f1;
+            padding: 5px;
+            border-radius: 5px;
+            margin: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #languageSelect:hover, 
+        #textSizeControls button:hover {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        /* New styles for improved accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: white;
+            padding: 8px;
+            z-index: 100;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* High contrast mode */
+        @media (prefers-contrast: high) {
+            body {
+                background-color: #000;
+                color: #fff;
+            }
+
+            #wrapper {
+                background-color: #000;
+            }
+
+            #header, #nav, #intro, .post.featured, #footer {
+                background-color: #000;
+                color: #fff;
+                border: 1px solid #fff;
+            }
+
+            .button {
+                background-color: #fff;
+                color: #000;
+            }
+        }
+    </style>
+</head>
+<body class="is-preload">
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <a href="index.html" class="logo">SafeVoices SL</a>
+
+            <!-- Language and Accessibility Controls -->
+            <div class="language-accessibility">
+                <select id="languageSelect" onchange="changeLanguage()">
+                    <option value="en">EN</option>
+                    <option value="kr">KR</option>
+                </select>
+
+                <div id="textSizeControls">
+                    <button onclick="changeTextSize('increase')">A+</button>
+                    <button onclick="changeTextSize('decrease')">A-</button>
+                    <button onclick="startDictation()">🗣️</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Nav -->
+        <nav id="nav">
+            <ul class="links">
+                <li class="active"><a href="index.html">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="reporting page.html">Report Abuse</a></li>
+                <li><a href="#">Support Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Intro -->
+        <section id="intro">
+            <h1>Welcome to<br />
+            SafeVoices SL</h1>
+            <p>A safe platform for reporting gender-based violence. Whether you choose to remain anonymous or identify yourself, your voice is heard and your safety is prioritized.</p>
+            <ul class="actions">
+                <li><a href="#header" class="button">Continue</a></li>
+            </ul>
+        </section>
+
+        <!-- Main -->
+        <div id="main">
+            <article class="post featured">
+                <header class="major">
+                    <h2 id="reportTitle">Speak Up, Stand Strong<br />
+                    Report Gender-Based Violence</h2>
+                    <p id="reportDescription">You can report anonymously or with your identity. We ensure confidentiality and safety in every report.</p>
+                </header>
+                <ul class="actions special">
+                    <li><a href="reporting page.html?type=identified" class="button" id="identifiedButton">Report Abuse (Identified)</a></li>
+                    <li><a href="reporting page.html?type=anonymous" class="button" id="anonymousButton">Report Abuse (Anonymous)</a></li>
+                </ul>
+            </article>
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <h3>Contact Us</h3>
+            <p>Email: safevoicessl@gmail.com | Phone: +232 123 456</p>
+        </footer>
+
+    </div>
+
+    <script>
+        let currentFontSize = 16;
+
+        function changeLanguage() {
+            const language = document.getElementById('languageSelect').value;
+            if (language === 'kr') {
+                document.getElementById('reportTitle').innerText = "Tawtɔŋ, Dɛn Tɛrɛ";
+                document.getElementById('reportDescription').innerText = "Yuh go fit tawtɔŋ anɔnimɔs o wid yuh na. Wi go sɔlkɔd ɓɛn naɛm nɔ yuh sɔfɛti.";
+                document.getElementById('identifiedButton').innerText = "Tawtɔŋ (Dɛn Tɛrɛ)";
+                document.getElementById('anonymousButton').innerText = "Tawtɔŋ (Anɔnimɔs)";
+            } else {
+                document.getElementById('reportTitle').innerText = "Speak Up, Stand Strong\nReport Gender-Based Violence";
+                document.getElementById('reportDescription').innerText = "You can report anonymously or with your identity. We ensure confidentiality and safety in every report.";
+                document.getElementById('identifiedButton').innerText = "Report Abuse (Identified)";
+                document.getElementById('anonymousButton').innerText = "Report Abuse (Anonymous)";
+            }
+        }
+
+        function changeTextSize(action) {
+            const body = document.body;
+            if (action === 'increase') {
+                currentFontSize += 2;
+            } else if (action === 'decrease') {
+                currentFontSize -= 2;
+            }
+            body.style.fontSize = currentFontSize + 'px';
+        }
+
+        function startDictation() {
+            const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.lang = 'en-US';
+            recognition.interimResults = false;
+
+            recognition.onresult = function(event) {
+                const transcript = event.results[0][0].transcript;
+                console.log(transcript);
+            };
+
+            recognition.onerror = function(event) {
+                console.error('Speech recognition error: ', event.error);
+            };
+
+            recognition.start();
+        }
+        const urlParams = new URLSearchParams(window.location.search);
+    const reportType = urlParams.get('type');
+
+    // Modify the page based on the report type
+    if (reportType === 'anonymous') {
+        document.getElementById('name').placeholder = "You can leave this blank for anonymous reporting";
+    } else if (reportType === 'identified') {
+        document.getElementById('name').placeholder = "Please enter your name";
+    }
+    </script>
+</body>
+</html>

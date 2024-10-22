@@ -1,0 +1,218 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <title>SAFE VOICES SL - Awareness Campaigns</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f5f7fa;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+        box-sizing: border-box;
+      }
+
+      #wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      h1, h2 {
+        color: #2c3e50;
+        margin-bottom: 10px;
+      }
+
+      p {
+        color: #7f8c8d;
+      }
+
+      /* Navigation */
+      #nav {
+        background-color: #2c3e50;
+        color: white;
+        padding: 15px 0;
+        text-align: center;
+      }
+
+      #nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      #nav ul li {
+        display: inline-block;
+        margin: 0 20px;
+      }
+
+      #nav ul li a {
+        color: #ecf0f1;
+        font-weight: 500;
+        font-size: 1.2em;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: color 0.3s ease;
+      }
+
+      #nav ul li a:hover {
+        color: #3498db;
+      }
+
+      /* Main Content */
+      #main {
+        margin: 50px 0;
+      }
+
+      .post.featured {
+        background-color: #fff;
+        padding: 30px;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+      }
+
+      .post.featured h2 {
+        font-size: 2em;
+        color: #2c3e50;
+      }
+
+      .post.featured p {
+        color: #7f8c8d;
+        font-size: 1.2em;
+      }
+
+      /* Campaign Section */
+      .campaigns {
+        margin-top: 30px;
+      }
+
+      .campaigns h2 {
+        font-size: 1.8em;
+        color: #2c3e50;
+      }
+
+      .campaigns p {
+        font-size: 1.2em;
+        color: #7f8c8d;
+      }
+
+      /* Accessibility and Language Feature */
+      .accessibility-options, .language-options {
+        margin: 20px 0;
+        text-align: right;
+      }
+
+      .language-options select, .accessibility-options select {
+        padding: 10px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 1em;
+        margin-left: 10px;
+      }
+
+      .language-options select:hover, .accessibility-options select:hover {
+        background-color: #2980b9;
+      }
+
+      /* Footer */
+      #footer {
+        background-color: #34495e;
+        color: #ecf0f1;
+        padding: 40px 20px;
+        text-align: center;
+      }
+
+      #footer p {
+        color: #bdc3c7;
+        font-size: 1em;
+      }
+    </style>
+  </head>
+  <body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+      <!-- Header -->
+      <header id="header">
+        <nav id="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="report.html">Report Abuse</a></li>
+            <li><a href="awareness.html">Awareness Campaigns</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Main Content -->
+      <div id="main">
+        <article class="post featured">
+          <header class="major">
+            <h2>Domestic & Sexual Violence Awareness Campaigns</h2>
+            <p>Our campaigns are aimed at educating communities about women’s rights and the legal consequences of domestic and sexual violence. Join us in spreading awareness and empowering change.</p>
+          </header>
+        </article>
+
+        <section class="campaigns">
+          <h2>Ongoing Campaigns</h2>
+          <p>We are currently running campaigns across various communities in Sierra Leone. The campaigns are focused on educating the public on women’s rights, domestic violence laws, and legal actions victims can pursue.</p>
+        </section>
+      </div>
+
+      <!-- Accessibility & Language Options -->
+      <div class="accessibility-options">
+        <label for="disability">Accessibility: </label>
+        <select id="disability">
+          <option value="default">Normal</option>
+          <option value="large-text">Large Text</option>
+        </select>
+      </div>
+
+      <div class="language-options">
+        <label for="language">Language: </label>
+        <select id="language">
+          <option value="en">English</option>
+          <option value="krio">Krio</option>
+        </select>
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <p>&copy; 2024 SAFE VOICES SL. All rights reserved.</p>
+      </footer>
+
+    </div>
+
+    <script>
+      // Language change function
+      document.getElementById('language').addEventListener('change', function() {
+        var lang = this.value;
+        if (lang === 'krio') {
+          document.querySelector('h2').textContent = "Domɛstik & Seksual Vaelɛns Kampeyn";
+          document.querySelector('.post p').textContent = "Wi kampeyn dɛn na fokos pan ɛdukɛt komyunit dɛn bout umin rait ɛn di legal konsikwɛns dem of domɛstik ɛn seksual vaelɛns. Kam join wi fo spred di tok ɛn gi powa fo chenj.";
+        } else {
+          document.querySelector('h2').textContent = "Domestic & Sexual Violence Awareness Campaigns";
+          document.querySelector('.post p').textContent = "Our campaigns are aimed at educating communities about women’s rights and the legal consequences of domestic and sexual violence. Join us in spreading awareness and empowering change.";
+        }
+      });
+
+      // Disability change function
+      document.getElementById('disability').addEventListener('change', function() {
+        if (this.value === 'large-text') {
+          document.body.style.fontSize = '1.3em';
+        } else {
+          document.body.style.fontSize = '1em';
+        }
+      });
+    </script>
+
+  </body>
+</html>

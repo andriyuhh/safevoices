@@ -1,0 +1,257 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>About Us - SAFE VOICES SL</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        #wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            color: #2c3e50;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #7f8c8d;
+            line-height: 1.8;
+        }
+
+        .mission-section {
+            background-color: #fff;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .core-values-section {
+            padding: 50px;
+            background-color: #eaf2f8;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            font-size: 1.1em;
+            margin: 15px 0;
+        }
+
+        /* Button Styles */
+        .button {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+            border-radius: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            border: none;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Nav Bar Styles */
+        #nav {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        #nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #nav ul li {
+            display: inline-block;
+            margin: 0 20px;
+        }
+
+        #nav ul li a {
+            color: #ecf0f1;
+            font-weight: 500;
+            font-size: 1.2em;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        #nav ul li a:hover {
+            color: #3498db;
+        }
+
+        /* Accessibility & Language Features */
+        #accessibility-menu {
+            text-align: right;
+            padding: 10px;
+            background-color: #ecf0f1;
+            color: #2c3e50;
+            font-size: 0.9em;
+        }
+
+        #accessibility-menu button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.8em;
+            margin-right: 10px;
+        }
+
+        #accessibility-menu button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #wrapper {
+                padding: 10px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Accessibility & Language Menu -->
+    <div id="accessibility-menu">
+        <button onclick="enableDisabilityMode()">Accessibility Mode</button>
+        <button onclick="setLanguage('en')">English</button>
+        <button onclick="setLanguage('kr')">Krio</button>
+    </div>
+
+    <!-- Nav Bar -->
+    <nav id="nav">
+        <ul class="links">
+            <li><a href="index.html" data-translate="home">Home</a></li>
+            <li><a href="about.html" data-translate="about">About Us</a></li>
+            <li><a href="report.html" data-translate="report">Report Abuse</a></li>
+            <li><a href="support.html" data-translate="support">Support Services</a></li>
+            <li><a href="contact.html" data-translate="contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- About Us Section -->
+        <section class="mission-section">
+            <h1 data-translate="aboutHeading">About Us</h1>
+            <p data-translate="aboutDescription"><strong>SafeVoices SL</strong> is a platform dedicated to giving a voice to those affected by gender-based violence in Sierra Leone. Our mission is to provide a safe, confidential, and accessible way for victims to report incidents, receive support, and connect with the necessary services to help them heal and seek justice.</p>
+        </section>
+
+        <!-- Mission Section -->
+        <section class="mission-section">
+            <h2 data-translate="missionHeading">Our Mission</h2>
+            <p data-translate="missionDescription">At SafeVoices SL, our mission is clear: to empower individuals by providing a safe space to report gender-based violence and access comprehensive support. We aim to promote justice, safety, and healing by ensuring that every voice is heard, regardless of identity or status.</p>
+        </section>
+
+        <!-- Core Values Section -->
+        <section class="core-values-section">
+            <h2 data-translate="coreValuesHeading">Our Core Values</h2>
+            <ul>
+                <li data-translate="confidentiality"><strong>Confidentiality:</strong> We ensure that all reports and personal information are handled with the utmost discretion and security.</li>
+                <li data-translate="empowerment"><strong>Empowerment:</strong> We strive to empower survivors by giving them control over their stories and the reporting process.</li>
+                <li data-translate="accessibility"><strong>Accessibility:</strong> Our platform is designed to be inclusive, offering support for people with disabilities and multi-language options, including Krio.</li>
+                <li data-translate="support"><strong>Support:</strong> We are committed to connecting survivors with legal, medical, and psychological resources to help them through their journey.</li>
+                <li data-translate="justice"><strong>Justice:</strong> We believe in seeking justice for victims of gender-based violence by working with local authorities and advocacy groups.</li>
+            </ul>
+        </section>
+
+        <!-- Call to Action -->
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="index.html" class="button" data-translate="backHome">Back to Home</a>
+            <a href="report.html" class="button" data-translate="reportAbuse">Report Abuse</a>
+        </div>
+
+    </div>
+
+    <script>
+        // Translations for English and Krio
+        const translations = {
+            en: {
+                home: "Home",
+                about: "About Us",
+                report: "Report Abuse",
+                support: "Support Services",
+                contact: "Contact",
+                aboutHeading: "About Us",
+                aboutDescription: "SafeVoices SL is a platform dedicated to giving a voice to those affected by gender-based violence in Sierra Leone. Our mission is to provide a safe, confidential, and accessible way for victims to report incidents, receive support, and connect with the necessary services to help them heal and seek justice.",
+                missionHeading: "Our Mission",
+                missionDescription: "At SafeVoices SL, our mission is clear: to empower individuals by providing a safe space to report gender-based violence and access comprehensive support. We aim to promote justice, safety, and healing by ensuring that every voice is heard, regardless of identity or status.",
+                coreValuesHeading: "Our Core Values",
+                confidentiality: "Confidentiality: We ensure that all reports and personal information are handled with the utmost discretion and security.",
+                empowerment: "Empowerment: We strive to empower survivors by giving them control over their stories and the reporting process.",
+                accessibility: "Accessibility: Our platform is designed to be inclusive, offering support for people with disabilities and multi-language options, including Krio.",
+                support: "Support: We are committed to connecting survivors with legal, medical, and psychological resources to help them through their journey.",
+                justice: "Justice: We believe in seeking justice for victims of gender-based violence by working with local authorities and advocacy groups.",
+                
+            },
+            kr: {
+                home: "Ɔm",
+                about: "Bɔt Wi",
+                report: "Ripot Abus",
+                support: "Sapɔt Sabis",
+                contact: "Kontak",
+                aboutHeading: "Bɔt Wi",
+                aboutDescription: "SafeVoices SL na platfɔm we de gi vois to uman dem wae den dae beat  na Salon. Wi misin na fo gi wan safe, konfidenshal, en aseɛsibul wei we victims kin ripɔt de incident, risiv sapɔt, en konɛkt wit de servis dem we kin gi dem hɛlp fɔ hil en siik jɔstis.",
+                missionHeading: "Wi Misin",
+                missionDescription: "Na SafeVoices SL, wi misin klia: na fɔ empawa pipul by gi dem wan safe spɛs fɔ ripɔt jenhder-bɛsd violence en access ɔl di support we den nid. Wi de promote jɔstis, sefti, en hilin by mek shɔ se evri vois get hɛn, nomata yu status or identity.",
+                coreValuesHeading: "Wi Valu Dem",
+                confidentiality: "Konfidenshaliti: Wi mek shɔ se ɔl ripɔt en pɛrsɔnɛl informɛshɔn wi tɛk am wit di mos diskreshɔn en sekiuriti.",
+                empowerment: "Giv Pawaa: Wi de striv fɔ empawa survivors by gi dem kontrol ova deha stɔri en di ripɔtin prɔses.",
+                accessibility: "Aseɛsibul: Wi platform de inklusiv, wi de offer sapɔt fɔ pipul wit disabiliti en multi-langwej opshɔn, inclod Krio.",
+                support: "Sapɔt: Wi commited fɔ konɛkt survivors wit legal, medical, en psychɔlɔjik resɔsiz fo hil dem na disha jenih.",
+                justice: "Jɔstis: Wi biliv se fɔ siik jɔstis fɔ victims by wok wit lɔkal authorities en advokasi grup dem.",
+                backHome: "Go Bak Ɔm",
+                reportAbuse: "Ripot Misihiv"
+            }
+        };
+
+        // Function to change language
+        function setLanguage(language) {
+            document.querySelectorAll("[data-translate]").forEach(el => {
+                const translationKey = el.getAttribute("data-translate");
+                el.textContent = translations[language][translationKey];
+            });
+        }
+
+        // Function to enable Disability Mode (Accessibility Features)
+        function enableDisabilityMode() {
+            document.body.style.backgroundColor = '#fff';
+            document.body.style.color = '#000';
+            document.body.style.fontSize = '1.5em';
+            alert('Accessibility mode enabled.');
+        }
+    </script>
+
+</body>
+</html>

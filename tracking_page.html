@@ -1,0 +1,299 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Your Report - SafeVoices SL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+       body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        #nav {
+            background-color: #2c3e50;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        #nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        #nav ul li {
+            margin: 0 15px;
+        }
+
+        #nav ul li a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1em;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        #nav ul li a:hover {
+            color: #3498db;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .language-select {
+            text-align: right;
+            margin-bottom: 30px;
+        }
+
+        .language-select select {
+            padding: 8px 12px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1em;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            flex: 1;
+            margin: 0 10px;
+            text-align: center;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .form-field {
+            margin-bottom: 20px;
+        }
+
+        .form-field label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .form-field input,
+        .form-field textarea,
+        .form-field select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-field input:focus,
+        .form-field textarea:focus,
+        .form-field select:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        .form-field textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .speech-btn {
+            background-color: #9b59b6;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .speech-btn:hover {
+            background-color: #8e44ad;
+        }
+
+        .submit-button {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 1.1em;
+            width: 100%;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #27ae60;
+            transform: translateY(-2px);
+        }
+
+        #tracking-info {
+            background-color: #e8f6f3;
+            border: 1px solid #2ecc71;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .footer-text {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            .button-container {
+                flex-direction: column;
+            }
+
+            .button {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <ul class="links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="reporting page.html">Report Abuse</a></li>
+            <li><a href="#">Support Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1 id="trackingTitle">Track Your Report</h1>
+
+        <div class="language-select">
+            <label for="language" id="languageLabel">Select Language:</label>
+            <select id="language" onchange="changeLanguage()">
+                <option value="en">English</option>
+                <option value="kr">Krio</option>
+            </select>
+        </div>
+
+        <div id="tracking-info">
+            <h2 id="trackingMessage">Your tracking number is: <strong id="tracking-number"></strong></h2>
+            <p id="trackingInstructions">Please save this number for future reference.</p>
+            <p id="statusMessage">Current status: <strong id="report-status">Loading...</strong></p>
+        </div>
+
+        <div class="footer-text">
+            <p id="footerMessage">Your voice matters. Together, we can make a difference.</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script>
+        // Initialize Supabase
+        const supabaseUrl = 'https://tlsktdnpmkjpukgxwhof.supabase.co';
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRsc2t0ZG5wbWtqcHVrZ3h3aG9mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjkxNjMxMzgsImV4cCI6MjA0NDczOTEzOH0.ymdZ58OvCojq1RpxwcOgIFB2NWwYCkIvWIyPiR9cotY';
+        const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+        // Get tracking number from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const trackingNumber = urlParams.get('tracking');
+
+        if (trackingNumber) {
+            document.getElementById('tracking-number').textContent = trackingNumber;
+            fetchReportStatus(trackingNumber);
+        } else {
+            document.getElementById('tracking-info').innerHTML = '<p>No tracking number provided.</p>';
+        }
+
+
+        async function fetchReportStatus(trackingNumber) {
+            try {
+                const { data, error } = await supabase
+                    .from('reports')
+                    .select('status')
+                    .eq('tracking_number', trackingNumber)
+                    .single();
+
+                if (error) throw error;
+
+                if (data) {
+                    document.getElementById('report-status').textContent = data.status;
+                } else {
+                    document.getElementById('report-status').textContent = 'Not Found';
+                }
+            } catch (error) {
+                console.error('Error fetching report status:', error);
+                document.getElementById('report-status').textContent = 'Error';
+            }
+        }
+
+        function changeLanguage() {
+            const language = document.getElementById('language').value;
+            if (language === 'kr') {
+                document.getElementById('trackingTitle').textContent = 'Trak Yu Ripɔt';
+                document.getElementById('languageLabel').textContent = 'Pik Lɛŋgwɛj:';
+                document.getElementById('trackingMessage').innerHTML = 'Yu traking nɔmba na: <strong id="tracking-number"></strong>';
+                document.getElementById('trackingInstructions').textContent = 'Duya sev dis nɔmba fɔ leta.';
+                document.getElementById('statusMessage').innerHTML = 'Aw i de naw: <strong id="report-status"></strong>';
+                document.getElementById('footerMessage').textContent = 'Yu vɔis matas. Tɛgeda, wi fɔ mek difrɛns.';
+            } else {
+                document.getElementById('trackingTitle').textContent = 'Track Your Report';
+                document.getElementById('languageLabel').textContent = 'Select Language:';
+                document.getElementById('trackingMessage').innerHTML = 'Your tracking number is: <strong id="tracking-number"></strong>';
+                document.getElementById('trackingInstructions').textContent = 'Please save this number for future reference.';
+                document.getElementById('statusMessage').innerHTML = 'Current status: <strong id="report-status"></strong>';
+                document.getElementById('footerMessage').textContent = 'Your voice matters. Together, we can make a difference.';
+            }
+        }
+    </script>
+</body>
+
+</html>
