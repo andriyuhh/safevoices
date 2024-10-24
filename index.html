@@ -7,174 +7,149 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
         /* Global Styles */
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --text-color: #333;
+            --background-color: #f0f4f8;
+            --card-background: #ffffff;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f0f4f8;
-            color: #333;
-            margin: 0;
-            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
             line-height: 1.6;
-            box-sizing: border-box;
         }
 
         #wrapper {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #ffffff;
+            background-color: var(--card-background);
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
         }
 
         h1, h2 {
-            color: #2c3e50;
+            color: var(--secondary-color);
             margin-bottom: 10px;
         }
 
         p {
-            color: #7f8c8d;
+            color: var(--text-color);
         }
 
-        /* Navigation and Header */
+        /* Header and Navigation */
+        #header, #nav {
+            background-color: var(--primary-color);
+            color: var(--card-background);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
         #header {
-            background-color: #3498db;
-            border-radius: 10px 10px 0 0;
-            padding: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         #header .logo {
-            font-size: 2.8em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        #nav {
-            background-color: #2980b9;
-            border-radius: 0 0 10px 10px;
+            font-size: 2em;
+            font-weight: 700;
+            color: var(--card-background);
+            text-decoration: none;
         }
 
         #nav ul {
             list-style-type: none;
             padding: 0;
             margin: 0;
+            display: flex;
+            justify-content: center;
         }
 
         #nav ul li {
-            display: inline-block;
             margin: 0 15px;
         }
 
         #nav ul li a {
-            color: #ecf0f1;
+            color: var(--card-background);
             font-weight: 500;
-            font-size: 1.2em;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            text-decoration: none;
             transition: all 0.3s ease;
         }
 
         #nav ul li a:hover {
-            background-color: #3498db;
+            opacity: 0.8;
         }
 
-        /* Language and Accessibility Features in the Header */
+        /* Language and Accessibility Features */
         .language-accessibility {
-            position: absolute;
-            top: 20px;
-            right: 20px;
             display: flex;
             gap: 10px;
         }
 
         .language-accessibility select,
         .language-accessibility button {
-            background: none;
+            background: var(--secondary-color);
+            color: var(--card-background);
             border: none;
-            color: #ecf0f1;
-            font-size: 1em;
+            padding: 5px 10px;
+            border-radius: 5px;
             cursor: pointer;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
-        .language-accessibility button:hover,
-        .language-accessibility select:hover {
-            color: #3498db;
+        .language-accessibility select:hover,
+        .language-accessibility button:hover {
+            background: var(--primary-color);
         }
 
-        /* Intro Section */
-        #intro {
-            background-color: #eaf2f8;
+        /* Sections */
+        #intro, #main, #footer {
+            background-color: var(--card-background);
             border-radius: 10px;
-            margin-top: 30px;
-        }
-
-        #intro h1 {
-            font-size: 3em;
-            color: #2c3e50;
+            padding: 30px;
             margin-bottom: 20px;
-        }
-
-        #intro p {
-            font-size: 1.5em;
-            max-width: 800px;
-            margin: 0 auto;
-            color: #7f8c8d;
-        }
-
-        .actions {
-            margin-top: 30px;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 12px 20px;
-            background-color: #3498db;
-            color: #fff;
-            text-transform: uppercase;
-            border-radius: 25px;
-            font-weight: 700;
-            transition: background-color 0.3s ease;
-            cursor: pointer;
-            border: none;
-            margin: 5px;
-            font-size: 1.1em;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
+        /* Buttons */
+        .button {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: var(--primary-color);
+            color: var(--card-background);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 700;
+            transition: background-color 0.3s ease;
+            border: none;
+            margin: 5px;
+            font-size: 1.1em;
+        }
+
         .button:hover {
-            background-color: #2980b9;
-        }
-
-        /* Main Section */
-        #main {
-            margin: 50px 0;
-        }
-
-        .post.featured {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .post.featured:hover {
-            transform: translateY(-5px);
+            background-color: var(--secondary-color);
         }
 
         /* Footer */
         #footer {
-            background-color: #34495e;
+            background-color: var(--secondary-color);
             border-radius: 10px;
             margin-top: 30px;
         }
 
         #footer h3 {
-            color: #ecf0f1;
+            color: var(--card-background);
             font-size: 1.5em;
             margin-bottom: 15px;
         }
 
         #footer p {
-            color: #bdc3c7;
+            color: var(--card-background);
             font-size: 1em;
         }
 
@@ -182,9 +157,9 @@
         #languageSelect, 
         #textSizeControls button {
             font-size: 0.9em;
-            background-color: #34495e;
-            color: #ecf0f1;
-            border: 1px solid #ecf0f1;
+            background-color: var(--secondary-color);
+            color: var(--card-background);
+            border: 1px solid var(--card-background);
             padding: 5px;
             border-radius: 5px;
             margin: 5px;
@@ -194,8 +169,8 @@
 
         #languageSelect:hover, 
         #textSizeControls button:hover {
-            background-color: #3498db;
-            color: #fff;
+            background-color: var(--primary-color);
+            color: var(--card-background);
         }
 
         /* New styles for improved accessibility */
@@ -235,6 +210,12 @@
                 color: #000;
             }
         }
+
+        .actions.special {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
     </style>
 </head>
 <body class="is-preload">
@@ -266,9 +247,9 @@
         <nav id="nav">
             <ul class="links">
                 <li class="active"><a href="index.html">Home</a></li>
-                <li><a href="#">About Us</a></li>
+                <li><a href="about us.html">About Us</a></li>
                 <li><a href="reporting page.html">Report Abuse</a></li>
-                <li><a href="#">Support Services</a></li>
+                <li><a href="awareness.html">Awareness</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
         </nav>
@@ -291,10 +272,10 @@
                     Report Gender-Based Violence</h2>
                     <p id="reportDescription">You can report anonymously or with your identity. We ensure confidentiality and safety in every report.</p>
                 </header>
-                <ul class="actions special">
-                    <li><a href="reporting page.html?type=identified" class="button" id="identifiedButton">Report Abuse (Identified)</a></li>
-                    <li><a href="reporting page.html?type=anonymous" class="button" id="anonymousButton">Report Abuse (Anonymous)</a></li>
-                </ul>
+                <div class="actions special">
+                    <a href="reporting page.html?type=identified" class="button" id="identifiedButton">Report Abuse (Identified)</a>
+                    <a href="reporting page.html?type=anonymous" class="button" id="anonymousButton">Report Abuse (Anonymous)</a>
+                </div>
             </article>
         </div>
 

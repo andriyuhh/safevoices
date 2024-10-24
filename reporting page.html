@@ -1,446 +1,226 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Report Abuse - SafeVoices SL</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Report Abuse</title>
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f0f4f8;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-
-        #nav {
-            background-color: #2c3e50;
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        #nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-        }
-
-        #nav ul li {
-            margin: 0 15px;
-        }
-
-        #nav ul li a {
-            color: #ecf0f1;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1em;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: color 0.3s ease;
-        }
-
-        #nav ul li a:hover {
-            color: #3498db;
+            background-color: #f5f5f5;
+            padding: 20px;
         }
 
         .container {
             max-width: 800px;
-            margin: 40px auto;
+            margin: 0 auto;
+            background-color: white;
             padding: 30px;
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
-            text-align: center;
-            color: #2c3e50;
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-        }
-
-        .language-select {
-            text-align: right;
-            margin-bottom: 30px;
-        }
-
-        .language-select select {
-            padding: 8px 12px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            font-size: 1em;
-        }
-
-        .button-container {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 30px;
-        }
-
-        .button {
-            background-color: #3498db;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 1em;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            flex: 1;
-            margin: 0 10px;
+            color: #333;
+            margin-bottom: 20px;
             text-align: center;
         }
 
-        .button:hover {
-            background-color: #2980b9;
-            transform: translateY(-2px);
-        }
-
-        .form-field {
+        .form-group {
             margin-bottom: 20px;
         }
 
-        .form-field label {
+        label {
             display: block;
             margin-bottom: 8px;
             font-weight: bold;
-            color: #2c3e50;
+            color: #444;
         }
 
-        .form-field input,
-        .form-field textarea,
-        .form-field select {
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        textarea {
             width: 100%;
-            padding: 12px;
+            padding: 10px;
             border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1em;
-            transition: border-color 0.3s ease;
+            border-radius: 4px;
+            font-size: 16px;
         }
 
-        .form-field input:focus,
-        .form-field textarea:focus,
-        .form-field select:focus {
-            border-color: #3498db;
-            outline: none;
-        }
-
-        .form-field textarea {
+        textarea {
+            height: 150px;
             resize: vertical;
-            min-height: 150px;
         }
 
-        .speech-btn {
-            background-color: #9b59b6;
+        .radio-group {
+            margin: 10px 0;
+        }
+
+        .radio-label {
+            margin-right: 20px;
+            font-weight: normal;
+        }
+
+        button {
+            background-color: #007bff;
             color: white;
-            padding: 10px 15px;
+            padding: 12px 24px;
             border: none;
-            border-radius: 5px;
+            border-radius: 4px;
             cursor: pointer;
-            font-size: 0.9em;
-            transition: background-color 0.3s ease;
-            margin-top: 10px;
-        }
-
-        .speech-btn:hover {
-            background-color: #8e44ad;
-        }
-
-        .submit-button {
-            background-color: #2ecc71;
-            color: white;
-            border: none;
-            border-radius: 25px;
-            padding: 15px;
-            cursor: pointer;
-            font-size: 1.1em;
+            font-size: 16px;
             width: 100%;
-            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
-        .submit-button:hover {
-            background-color: #27ae60;
-            transform: translateY(-2px);
+        button:hover {
+            background-color: #0056b3;
         }
 
-        #tracking-info {
-            background-color: #e8f6f3;
-            border: 1px solid #2ecc71;
-            border-radius: 5px;
-            padding: 20px;
-            margin-top: 30px;
+        .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+        }
+
+        .alert-info {
+            color: #004085;
+            background-color: #cce5ff;
+            border-color: #b8daff;
+        }
+
+        .alert-success {
+            color: #155724;
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+
+        .success-container {
+            display: none;
             text-align: center;
         }
 
-        .footer-text {
-            text-align: center;
-            margin-top: 30px;
-            font-size: 0.9em;
-            color: #7f8c8d;
+        .report-number {
+            font-size: 24px;
+            color: #28a745;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
         }
 
-        @media screen and (max-width: 768px) {
+        @media (max-width: 600px) {
             .container {
-                padding: 20px;
-            }
-
-            .button-container {
-                flex-direction: column;
-            }
-
-            .button {
-                margin: 10px 0;
+                padding: 15px;
             }
         }
     </style>
 </head>
-
 <body>
-    <nav id="nav">
-        <ul class="links">
-            <li class="active"><a href="index.html">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="reporting page.html">Report Abuse</a></li>
-            <li><a href="#">Support Services</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
-
     <div class="container">
-        <h1 id="reportAbuseTitle">Report Abuse</h1>
+        <form id="abuseForm">
+            <h1>Report Abuse</h1>
+            
+            <div class="alert alert-info">
+                All reports are treated with strict confidentiality. If you choose to report anonymously, 
+                you will still receive a tracking number to follow up on your case.
+            </div>
 
-        <div class="language-select">
-            <label for="language" id="languageLabel">Select Language:</label>
-            <select id="language" onchange="changeLanguage()">
-                <option value="en">English</option>
-                <option value="kr">Krio</option>
-            </select>
-        </div>
+            <div class="form-group">
+                <label>How would you like to report?</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="reportType" value="identified" checked onchange="toggleIdentityFields()">
+                        Report with Identity
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="reportType" value="anonymous" onchange="toggleIdentityFields()">
+                        Report Anonymously
+                    </label>
+                </div>
+            </div>
 
-        <div class="button-container" id="buttonContainer">
-            <button class="button" onclick="showForm('anonymous')" id="anonymousButton">Report Anonymously</button>
-            <button class="button" onclick="showForm('identified')" id="identifiedButton">Report with Identification</button>
-        </div>
-
-        <div class="form-container" id="reportFormContainer" style="display:none;">
-            <form id="reportForm">
-                <div class="form-field" id="nameField" style="display:none;">
-                    <label for="name" id="nameLabel">Your Name:</label>
-                    <input type="text" id="name" name="name" placeholder="Enter your name">
+            <div id="identityFields">
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name">
                 </div>
 
-                <div class="form-field" id="phoneField" style="display:none;">
-                    <label for="phone" id="phoneLabel">Phone Number:</label>
-                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email">
                 </div>
+            </div>
 
-                <div class="form-field" id="addressField" style="display:none;">
-                    <label for="address" id="addressLabel">Address:</label>
-                    <input type="text" id="address" name="address" placeholder="Enter your address">
+            <div class="form-group">
+                <label for="date">Date of Incident:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description of Incident:</label>
+                <textarea id="description" name="description" required 
+                    placeholder="Please provide as much detail as possible about the incident..."></textarea>
+            </div>
+
+            <button type="submit">Submit Report</button>
+        </form>
+
+        <div id="successMessage" class="success-container">
+            <div class="alert alert-success">
+                <h2>Report Submitted Successfully</h2>
+                <p>Your report has been received and will be reviewed by our team.</p>
+                <div class="report-number">
+                    Your Report Number: <span id="reportNumberDisplay"></span>
                 </div>
-
-                <div class="form-field">
-                    <label for="message" id="messageLabel">Report Details:</label>
-                    <textarea id="message" name="message" required placeholder="Provide detailed information..."></textarea>
-                    <button type="button" class="speech-btn" onclick="startSpeechToText()">Use Speech to Text</button>
-                </div>
-
-                <div class="form-field">
-                    <label for="photos" id="photosLabel">Upload Photos:</label>
-                    <input type="file" id="photos" name="photos" accept="image/*" multiple>
-                </div>
-
-                <button type="submit" class="submit-button">Submit Report</button>
-            </form>
-        </div>
-
-        <div id="tracking-info" style="display: none;">
-            <h2 id="trackingTitle">Report Submitted!</h2>
-            <p id="trackingMessage">Your tracking number is: <strong id="tracking-number"></strong></p>
-            <p id="trackingInstructions">Please save this number for future reference.</p>
-        </div>
-
-        <div class="footer-text">
-            <p id="footerMessage">Your voice matters. Together, we can make a difference.</p>
+                <p>Please save this number to track the progress of your case.</p>
+            </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <script>
-        // Initialize Supabase
-        const supabaseUrl = 'https://tlsktdnpmkjpukgxwhof.supabase.co';
-        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRsc2t0ZG5wbWtqcHVrZ3h3aG9mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjkxNjMxMzgsImV4cCI6MjA0NDczOTEzOH0.ymdZ58OvCojq1RpxwcOgIFB2NWwYCkIvWIyPiR9cotY';
-        const supabase = supabase.createClient(supabaseUrl, supabaseKey);
-
-        function generateTrackingNumber() {
-            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-            let result = '';
-            const length = 10;
-            for (let i = 0; i < length; i++) {
-                result += characters.charAt(Math.floor(Math.random() * characters.length));
-            }
-            return result;
-        }
-        const { Pool } = require('pg');
-
-// Connection configuration
-const connectionString = 'postgres://postgres.tlsktdnpmkjpukgxwhof:[mybirthdayisdecember8]@aws-0-eu-west-2.pooler.supabase.com:6543/postgres';
-
-// Create a new pool
-const pool = new Pool({
-  connectionString: connectionString,
-  ssl: {
-    rejectUnauthorized: false // This is necessary for Supabase connections
-  }
-});
-
-// Function to query the database
-async function queryDatabase(query, params) {
-  const client = await pool.connect();
-  try {
-    const result = await client.query(query, params);
-    return result.rows;
-  } finally {
-    client.release();
-  }
-}
-
-module.exports = { queryDatabase };
-        function showForm(type) {
-            const formContainer = document.getElementById('reportFormContainer');
-            const nameField = document.getElementById('nameField');
-            const phoneField = document.getElementById('phoneField');
-            const addressField = document.getElementById('addressField');
-            const buttonContainer = document.getElementById('buttonContainer');
-
-            // Show the form container and hide the buttons container
-            formContainer.style.display = 'block';
-            buttonContainer.style.display = 'none';
-
-            // If 'identified', show the name, phone, and address fields
-            if (type === 'identified') {
-                nameField.style.display = 'block';
-                phoneField.style.display = 'block';
-                addressField.style.display = 'block';
-            } else {
-                // Hide name, phone, and address fields if anonymous
-                nameField.style.display = 'none';
-                phoneField.style.display = 'none';
-                addressField.style.display = 'none';
-            }
+        function toggleIdentityFields() {
+            const identityFields = document.getElementById('identityFields');
+            const reportType = document.querySelector('input[name="reportType"]:checked').value;
+            identityFields.style.display = reportType === 'anonymous' ? 'none' : 'block';
         }
 
-        // Handle form submission
-        document.getElementById('reportForm').addEventListener('submit', async (e) => {
+        function generateReportNumber() {
+            const timestamp = Date.now().toString(36);
+            const random = Math.random().toString(36).substring(2, 7);
+            return `REP-${timestamp}-${random}`.toUpperCase();
+        }
+
+        document.getElementById('abuseForm').addEventListener('submit', function(e) {
             e.preventDefault();
-
-            const submitButton = document.querySelector('.submit-button');
-            const message = document.getElementById('message').value.trim();
-
-            if (!message) {
-                alert('Please provide report details before submitting.');
-                return;
-            }
-
-            submitButton.disabled = true;
-            submitButton.textContent = 'Submitting...';
-
-            try {
-                const trackingNumber = 'SAFE-' + Math.random().toString(36).substring(2, 10).toUpperCase();
-
-                const { data, error } = await supabase
-                    .from('reports')
-                    .insert([{ tracking_number: trackingNumber, description: message, status: 'Pending' }]);
-
-                if (error) throw error;
-
-                // Redirect to the tracking page with the tracking number
-                window.location.href = `tracking_page.html=${trackingNumber}`;
-
-            } catch (error) {
-                console.error('Error submitting report:', error);
-                alert('There was an error submitting your report. Please try again later.');
-            } finally {
-                submitButton.disabled = false;
-                submitButton.textContent = 'Submit Report';
-            }
+            
+            // Generate report number
+            const reportNumber = generateReportNumber();
+            
+            // Display success message and report number
+            document.getElementById('reportNumberDisplay').textContent = reportNumber;
+            document.getElementById('abuseForm').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // Here you would typically send the form data to your server
+            // const formData = new FormData(this);
+            // fetch('/submit-report', {
+            //     method: 'POST',
+            //     body: formData
+            // });
         });
-
-        function startSpeechToText() {
-            const textarea = document.getElementById('message');
-            if ('webkitSpeechRecognition' in window) {
-                const recognition = new webkitSpeechRecognition();
-                recognition.lang = document.getElementById('language').value === 'kr' ? 'en-SL' : 'en-US';
-                recognition.continuous = false;
-                recognition.interimResults = false;
-
-                recognition.start();
-
-                recognition.onresult = function(event) {
-                    const transcript = event.results[0][0].transcript;
-                    textarea.value += transcript;
-                };
-
-                recognition.onerror = function(event) {
-                    alert('Speech recognition error. Please try again.');
-                };
-            } else {
-                alert('Speech recognition is not supported in this browser.');
-            }
-        }
-
-        function changeLanguage() {
-            const language = document.getElementById('language').value;
-            const anonymousButton = document.getElementById('anonymousButton');
-            const identifiedButton = document.getElementById('identifiedButton');
-
-            if (language === 'kr') {
-                document.getElementById('reportAbuseTitle').textContent = 'Ripɔt Abus';
-                document.getElementById('languageLabel').textContent = 'Pik Lɛŋgwɛj:';
-                anonymousButton.textContent = 'Ripɔt kwayɛt wan';
-                identifiedButton.textContent = 'Ripɔt wit yu Nɛm';
-                document.getElementById('nameLabel').textContent = 'Yu Nɛm:';
-                document.getElementById('phoneLabel').textContent = 'Fɔn Nɔmba:';
-                document.getElementById('addressLabel').textContent = 'Adrɛs:';
-                document.getElementById('messageLabel').textContent = 'Ripɔt Ditɛl:';
-                document.getElementById('photosLabel').textContent = 'Dɔnload Piktʃɔs:';
-                document.getElementById('footerMessage').textContent = 'Yu vɔis matas. Tɛgeda, wi fɔ mek difrɛns.';
-            } else {
-                document.getElementById('reportAbuseTitle').textContent = 'Report Abuse';
-                document.getElementById('languageLabel').textContent = 'Select Language:';
-                anonymousButton.textContent = 'Report Anonymously';
-                identifiedButton.textContent = 'Report with Identification';
-                document.getElementById('nameLabel').textContent = 'Your Name:';
-                document.getElementById('phoneLabel').textContent = 'Phone Number:';
-                document.getElementById('addressLabel').textContent = 'Address:';
-                document.getElementById('messageLabel').textContent = 'Report Details:';
-                document.getElementById('photosLabel').textContent = 'Upload Photos:';
-                document.getElementById('footerMessage').textContent = 'Your voice matters. Together, we can make a difference.';
-            }
-
-            updateTrackingInfoLanguage();
-        }
-
-        function updateTrackingInfoLanguage() {
-            const language = document.getElementById('language').value;
-            if (language === 'kr') {
-                document.getElementById('trackingTitle').textContent = 'Ripɔt Dɔn Sɛn!';
-                document.getElementById('trackingMessage').innerHTML = 'Yu traking nɔmba na: <strong id="tracking-number"></strong>';
-                document.getElementById('trackingInstructions').textContent = 'Duya sev dis nɔmba fɔ leta.';
-            } else {
-                document.getElementById('trackingTitle').textContent = 'Report Submitted!';
-                document.getElementById('trackingMessage').innerHTML = 'Your tracking number is: <strong id="tracking-number"></strong>';
-                document.getElementById('trackingInstructions').textContent = 'Please save this number for future reference.';
-            }
-        }
     </script>
 </body>
-
 </html>

@@ -87,14 +87,14 @@
         .button {
             background-color: #3498db;
             color: white;
-            padding: 12px 20px;
+            padding: 10px 10px;
             border: none;
-            border-radius: 25px;
+            border-radius: 15px;
             cursor: pointer;
             font-size: 1em;
             transition: background-color 0.3s ease, transform 0.2s ease;
             flex: 1;
-            margin: 0 10px;
+            margin: 0 5px;
             text-align: center;
         }
 
@@ -123,6 +123,7 @@
             border-radius: 5px;
             font-size: 1em;
             transition: border-color 0.3s ease;
+            margin-bottom: 15px; /* Add space below the input */
         }
 
         .form-field input:focus,
@@ -157,12 +158,13 @@
             background-color: #2ecc71;
             color: white;
             border: none;
-            border-radius: 25px;
-            padding: 15px;
+            border-radius: 15px;
+            padding: 12px 20px; /* Increase padding for better appearance */
             cursor: pointer;
             font-size: 1.1em;
             width: 100%;
             transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 10px; /* Add space above the button */
         }
 
         .submit-button:hover {
@@ -224,7 +226,13 @@
             </select>
         </div>
 
-        <div id="tracking-info">
+        <div class="form-field">
+            <label for="tracking-input" id="trackingInputLabel">Enter your tracking number:</label>
+            <input type="text" id="tracking-input" placeholder="e.g., ABC123">
+            <button onclick="trackReport()" class="submit-button" id="trackButton">Track Report</button>
+        </div>
+
+        <div id="tracking-info" style="display: none;">
             <h2 id="trackingMessage">Your tracking number is: <strong id="tracking-number"></strong></h2>
             <p id="trackingInstructions">Please save this number for future reference.</p>
             <p id="statusMessage">Current status: <strong id="report-status">Loading...</strong></p>
@@ -242,17 +250,16 @@
         const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRsc2t0ZG5wbWtqcHVrZ3h3aG9mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjkxNjMxMzgsImV4cCI6MjA0NDczOTEzOH0.ymdZ58OvCojq1RpxwcOgIFB2NWwYCkIvWIyPiR9cotY';
         const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
-        // Get tracking number from URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const trackingNumber = urlParams.get('tracking');
-
-        if (trackingNumber) {
-            document.getElementById('tracking-number').textContent = trackingNumber;
-            fetchReportStatus(trackingNumber);
-        } else {
-            document.getElementById('tracking-info').innerHTML = '<p>No tracking number provided.</p>';
+        function trackReport() {
+            const trackingNumber = document.getElementById('tracking-input').value.trim();
+            if (trackingNumber) {
+                document.getElementById('tracking-number').textContent = trackingNumber;
+                document.getElementById('tracking-info').style.display = 'block';
+                fetchReportStatus(trackingNumber);
+            } else {
+                alert('Please enter a valid tracking number.');
+            }
         }
-
 
         async function fetchReportStatus(trackingNumber) {
             try {
@@ -280,6 +287,9 @@
             if (language === 'kr') {
                 document.getElementById('trackingTitle').textContent = 'Trak Yu Ripɔt';
                 document.getElementById('languageLabel').textContent = 'Pik Lɛŋgwɛj:';
+                document.getElementById('trackingInputLabel').textContent = 'Put yu traking nɔmba:';
+                document.getElementById('tracking-input').placeholder = 'lɛk, ABC123';
+                document.getElementById('trackButton').textContent = 'Trak Ripɔt';
                 document.getElementById('trackingMessage').innerHTML = 'Yu traking nɔmba na: <strong id="tracking-number"></strong>';
                 document.getElementById('trackingInstructions').textContent = 'Duya sev dis nɔmba fɔ leta.';
                 document.getElementById('statusMessage').innerHTML = 'Aw i de naw: <strong id="report-status"></strong>';
@@ -287,6 +297,9 @@
             } else {
                 document.getElementById('trackingTitle').textContent = 'Track Your Report';
                 document.getElementById('languageLabel').textContent = 'Select Language:';
+                document.getElementById('trackingInputLabel').textContent = 'Enter your tracking number:';
+                document.getElementById('tracking-input').placeholder = 'e.g., ABC123';
+                document.getElementById('trackButton').textContent = 'Track Report';
                 document.getElementById('trackingMessage').innerHTML = 'Your tracking number is: <strong id="tracking-number"></strong>';
                 document.getElementById('trackingInstructions').textContent = 'Please save this number for future reference.';
                 document.getElementById('statusMessage').innerHTML = 'Current status: <strong id="report-status"></strong>';
