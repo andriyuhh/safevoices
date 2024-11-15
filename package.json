@@ -1,6 +1,12 @@
 {
   "dependencies": {
-    "@supabase/supabase-js": "^2.45.6",
-    "pg": "^8.13.0"
+    "@supabase/supabase-js": "^2.46.1",
+    "pg": "^8.13.0",
+    "vite-plugin-node-stdlib-browser": "^0.2.1"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "watch:css": "tailwindcss -i ./src/css/input.css -o ./public/css/styles.css --watch"
   }
 }
